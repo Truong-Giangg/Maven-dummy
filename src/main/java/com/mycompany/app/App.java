@@ -8,6 +8,6 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "This is mvn app for CI setup2" );
+        System.out.println( "This is mvn app for CI setup3" );
     }
 }
