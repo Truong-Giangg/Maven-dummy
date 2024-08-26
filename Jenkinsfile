@@ -4,7 +4,7 @@ pipeline {
         stage('Scan & Review with Sonar') {
             steps {
                 withSonarQubeEnv(installationName: 'sonar') {
-                    sh 'mvn clean package sonar:sonar   -Dsonar.projectKey=Basic-Maven   -Dsonar.projectName='Basic Maven'   -Dsonar.host.url=http://localhost:9000   -Dsonar.token=sqp_1d0b485eaa6f5a8028690c8983d8fd0c74490278'
+                    sh 'mvn clean package sonar:sonar   -Dsonar.projectKey=Basic-Maven   -Dsonar.projectName=\'Basic Maven\'   -Dsonar.host.url=http://localhost:9000   -Dsonar.token=sqp_1d0b485eaa6f5a8028690c8983d8fd0c74490278'
                 }
             }
         }
