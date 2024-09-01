@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        DOCKERHUB_CREDENTIALS=credential('dockerhub')
+    }
     stages {
         stage('Scan & Review with Sonar') {
             steps {
@@ -26,7 +29,8 @@ pipeline {
         stage('Push image to DockerHub') {
             steps {
                 echo 'Start pushing.. with credential'
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u giangjason --password-stdin'
+                sh 'echo $DOCKERHUB_CREDENTIALS'
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                 sh 'docker push giangjason/maven-simple-image:1.1'
             }
         }
