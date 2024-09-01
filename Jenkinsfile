@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKERHUB_CREDENTIALS=credential('dockerhub')
+        DOCKERHUB_CREDENTIALS=credentials('dockerhub')
     }
     stages {
         stage('Scan & Review with Sonar') {
